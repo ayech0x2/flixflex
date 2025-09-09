@@ -1,20 +1,26 @@
-import { BoxProps, createBox, createText, createTheme } from "@shopify/restyle";
-import { moderateScale, normalizeFont } from "./normalize";
 import {
-  TextInput as RNTextInput,
-  SafeAreaView as RNSafeAreaView,
-  TextInput as RNTextInputProps,
-  SafeAreaView as RNSafeAreaViewProps,
-} from "react-native";
-import { createRestyleComponent } from "@shopify/restyle";
-import {
-  spacing,
   backgroundColor,
-  shadow,
+  border,
+  BoxProps,
+  createBox,
+  createRestyleComponent,
+  createText,
+  createTheme,
   layout,
+  shadow,
+  spacing,
   typography,
+  TypographyProps,
 } from "@shopify/restyle";
-import { TypographyProps } from "@shopify/restyle";
+import {
+  SafeAreaView as RNSafeAreaView,
+  TextInput as RNTextInput,
+  TextInput as RNTextInputProps,
+  TouchableOpacity as RNTouchableOpacity,
+  TouchableOpacityProps as RNTouchableOpacityProps,
+  ViewProps,
+} from "react-native";
+import { moderateScale, normalizeFont } from "./normalize";
 
 const palette = {
   black: "#000000",
@@ -64,6 +70,7 @@ const lightTheme = createTheme({
       color: "bodyText",
     },
   },
+  borderRadii: {},
 });
 
 type Theme = typeof lightTheme;
@@ -82,14 +89,23 @@ type TextInputProps = BoxProps<Theme> &
   RNTextInputProps &
   TypographyProps<Theme>;
 export const TextInput = createRestyleComponent<TextInputProps, Theme>(
-  [spacing, backgroundColor, spacing, shadow, layout, typography],
+  [spacing, backgroundColor, spacing, shadow, border, layout, typography],
   RNTextInput,
 );
 
-type SafeAreaViewProps = BoxProps<Theme> & RNSafeAreaViewProps;
+type SafeAreaViewProps = BoxProps<Theme> & ViewProps;
 export const SafeAreaView = createRestyleComponent<SafeAreaViewProps, Theme>(
-  [spacing, backgroundColor, spacing, shadow, layout],
+  [spacing, backgroundColor, spacing, border, shadow, layout],
   RNSafeAreaView,
 );
 
-export { Box, Text, Theme, darkTheme, lightTheme };
+type TouchableOpacityProps = BoxProps<Theme> & RNTouchableOpacityProps;
+export const TouchableOpacity = createRestyleComponent<
+  TouchableOpacityProps,
+  Theme
+>(
+  [spacing, backgroundColor, spacing, border, shadow, layout],
+  RNTouchableOpacity,
+);
+
+export { Box, darkTheme, lightTheme, Text, Theme };
