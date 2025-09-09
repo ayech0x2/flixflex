@@ -1,5 +1,20 @@
-import { createBox, createText, createTheme } from "@shopify/restyle";
+import { BoxProps, createBox, createText, createTheme } from "@shopify/restyle";
 import { moderateScale, normalizeFont } from "./normalize";
+import {
+  TextInput as RNTextInput,
+  SafeAreaView as RNSafeAreaView,
+  TextInput as RNTextInputProps,
+  SafeAreaView as RNSafeAreaViewProps,
+} from "react-native";
+import { createRestyleComponent } from "@shopify/restyle";
+import {
+  spacing,
+  backgroundColor,
+  shadow,
+  layout,
+  typography,
+} from "@shopify/restyle";
+import { TypographyProps } from "@shopify/restyle";
 
 const palette = {
   black: "#000000",
@@ -62,5 +77,19 @@ const darkTheme: Theme = {
 
 const Box = createBox<Theme>();
 const Text = createText<Theme>();
+
+type TextInputProps = BoxProps<Theme> &
+  RNTextInputProps &
+  TypographyProps<Theme>;
+export const TextInput = createRestyleComponent<TextInputProps, Theme>(
+  [spacing, backgroundColor, spacing, shadow, layout, typography],
+  RNTextInput,
+);
+
+type SafeAreaViewProps = BoxProps<Theme> & RNSafeAreaViewProps;
+export const SafeAreaView = createRestyleComponent<SafeAreaViewProps, Theme>(
+  [spacing, backgroundColor, spacing, shadow, layout],
+  RNSafeAreaView,
+);
 
 export { Box, Text, Theme, darkTheme, lightTheme };
