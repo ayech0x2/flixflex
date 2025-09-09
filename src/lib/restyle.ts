@@ -19,6 +19,8 @@ import {
   TouchableOpacity as RNTouchableOpacity,
   TouchableOpacityProps as RNTouchableOpacityProps,
   ViewProps,
+  Image as RNImage,
+  ImageProps as RNImageProps,
 } from "react-native";
 import { moderateScale, normalizeFont } from "./normalize";
 
@@ -38,12 +40,14 @@ const lightTheme = createTheme({
     accent: palette.yellow,
   },
   spacing: {
-    xs: 4,
-    s: 8,
-    m: 16,
-    l: 24,
-    xl: 40,
-    xxl: 48,
+    auto: "auto",
+    xs: moderateScale(4),
+    s: moderateScale(8),
+    m: moderateScale(16),
+    l: moderateScale(24),
+    xl: moderateScale(40),
+    xxl: moderateScale(48),
+    screenPadding: moderateScale(30),
   },
   sizes: {
     buttonHeight: moderateScale(50),
@@ -70,7 +74,9 @@ const lightTheme = createTheme({
       color: "bodyText",
     },
   },
-  borderRadii: {},
+  borderRadii: {
+    button: 8,
+  },
 });
 
 type Theme = typeof lightTheme;
@@ -106,6 +112,12 @@ export const TouchableOpacity = createRestyleComponent<
 >(
   [spacing, backgroundColor, spacing, border, shadow, layout],
   RNTouchableOpacity,
+);
+
+type ImageProps = BoxProps<Theme> & RNImageProps;
+export const Image = createRestyleComponent<ImageProps, Theme>(
+  [spacing, backgroundColor, spacing, border, shadow, layout],
+  RNImage,
 );
 
 export { Box, darkTheme, lightTheme, Text, Theme };
