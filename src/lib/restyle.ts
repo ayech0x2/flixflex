@@ -22,6 +22,8 @@ import {
   Image as RNImage,
   ImageProps as RNImageProps,
   Dimensions,
+  Pressable as RNPressable,
+  PressableProps as RNPressableProps,
 } from "react-native";
 import { moderateScale, normalizeFont } from "./normalize";
 
@@ -37,6 +39,8 @@ const palette = {
   white: "#FFFFFF",
   yellow: "#F3BD17",
   grey: "#BDBDBD",
+  black1: "#1D1D1D",
+  black2: "#2B2B2B",
 };
 
 const lightTheme = createTheme({
@@ -45,7 +49,10 @@ const lightTheme = createTheme({
     bodyText: palette.white,
     buttonText: palette.white,
     secondaryBodyText: palette.grey,
+    inputIcon: palette.grey,
     accent: palette.yellow,
+    inputBg: palette.black1,
+    inputBorder: palette.black2,
   },
   spacing: {
     auto: "auto",
@@ -56,9 +63,11 @@ const lightTheme = createTheme({
     xl: moderateScale(40),
     xxl: moderateScale(48),
     screenPadding: moderateScale(30),
+    inputPadding: moderateScale(16),
   },
   sizes: {
     buttonHeight: moderateScale(50),
+    inputHeight: moderateScale(50),
     screenHeight: SCREEN_HEIGHT,
     screenWidth: SCREEN_WIDTH,
   },
@@ -86,6 +95,7 @@ const lightTheme = createTheme({
   },
   borderRadii: {
     button: 8,
+    input: 8,
   },
 });
 
@@ -122,6 +132,12 @@ export const TouchableOpacity = createRestyleComponent<
 >(
   [spacing, backgroundColor, spacing, border, shadow, layout],
   RNTouchableOpacity,
+);
+
+type PressableProps = BoxProps<Theme> & RNPressableProps;
+export const Pressable = createRestyleComponent<PressableProps, Theme>(
+  [spacing, backgroundColor, spacing, border, shadow, layout],
+  RNPressable,
 );
 
 type ImageProps = BoxProps<Theme> & RNImageProps;
