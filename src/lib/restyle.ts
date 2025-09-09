@@ -9,22 +9,19 @@ import {
   layout,
   shadow,
   spacing,
-  typography,
-  TypographyProps,
 } from "@shopify/restyle";
 import {
+  Dimensions,
+  Image as RNImage,
+  ImageProps as RNImageProps,
+  Pressable as RNPressable,
+  PressableProps as RNPressableProps,
   SafeAreaView as RNSafeAreaView,
-  TextInput as RNTextInput,
-  TextInput as RNTextInputProps,
   TouchableOpacity as RNTouchableOpacity,
   TouchableOpacityProps as RNTouchableOpacityProps,
   ViewProps,
-  Image as RNImage,
-  ImageProps as RNImageProps,
-  Dimensions,
-  Pressable as RNPressable,
-  PressableProps as RNPressableProps,
 } from "react-native";
+import Animated, { AnimatedProps } from "react-native-reanimated";
 import { moderateScale, normalizeFont } from "./normalize";
 
 import {
@@ -111,14 +108,6 @@ const darkTheme: Theme = {
 const Box = createBox<Theme>();
 const Text = createText<Theme>();
 
-type TextInputProps = BoxProps<Theme> &
-  RNTextInputProps &
-  TypographyProps<Theme>;
-export const TextInput = createRestyleComponent<TextInputProps, Theme>(
-  [spacing, backgroundColor, spacing, shadow, border, layout, typography],
-  RNTextInput,
-);
-
 type SafeAreaViewProps = BoxProps<Theme> & ViewProps;
 export const SafeAreaView = createRestyleComponent<SafeAreaViewProps, Theme>(
   [spacing, backgroundColor, spacing, border, shadow, layout],
@@ -153,6 +142,15 @@ export const LinearGradient = createRestyleComponent<
 >(
   [spacing, backgroundColor, spacing, border, shadow, layout],
   RNLinearGradient,
+);
+
+type AnimatedViewProps = AnimatedProps<
+  ViewProps & { children?: React.ReactNode }
+>;
+type AnimatedBoxProps = BoxProps<Theme> & AnimatedViewProps;
+export const AnimatedBox = createRestyleComponent<AnimatedBoxProps, Theme>(
+  [spacing, backgroundColor, spacing, border, shadow, layout],
+  Animated.View,
 );
 
 export { Box, darkTheme, lightTheme, Text, Theme };
