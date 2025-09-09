@@ -1,3 +1,5 @@
+import Root from "@/Root";
+
 export default function App() {
-  return null;
+  return <Root />;
 }
