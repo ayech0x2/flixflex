@@ -25,6 +25,11 @@ import {
 } from "react-native";
 import { moderateScale, normalizeFont } from "./normalize";
 
+import {
+  LinearGradient as RNLinearGradient,
+  LinearGradientProps as RNLinearGradientProps,
+} from "expo-linear-gradient";
+
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 const palette = {
@@ -123,6 +128,15 @@ type ImageProps = BoxProps<Theme> & RNImageProps;
 export const Image = createRestyleComponent<ImageProps, Theme>(
   [spacing, backgroundColor, spacing, border, shadow, layout],
   RNImage,
+);
+
+type LinearGradientProps = BoxProps<Theme> & RNLinearGradientProps;
+export const LinearGradient = createRestyleComponent<
+  LinearGradientProps,
+  Theme
+>(
+  [spacing, backgroundColor, spacing, border, shadow, layout],
+  RNLinearGradient,
 );
 
 export { Box, darkTheme, lightTheme, Text, Theme };
