@@ -21,8 +21,11 @@ import {
   ViewProps,
   Image as RNImage,
   ImageProps as RNImageProps,
+  Dimensions,
 } from "react-native";
 import { moderateScale, normalizeFont } from "./normalize";
+
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 const palette = {
   black: "#000000",
@@ -51,6 +54,8 @@ const lightTheme = createTheme({
   },
   sizes: {
     buttonHeight: moderateScale(50),
+    screenHeight: SCREEN_HEIGHT,
+    screenWidth: SCREEN_WIDTH,
   },
   textVariants: {
     bodySecondary: {
