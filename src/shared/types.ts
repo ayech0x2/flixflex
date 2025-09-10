@@ -16,3 +16,9 @@ export interface IconProps {
   strokeWidth?: number | undefined;
   style?: StyleProp<ViewStyle> | undefined;
 }
+
+export interface AlertPayload {
+  title: string;
+  message: string;
+  type: "SUCCESS" | "DANGER" | "WARNING";
+}
