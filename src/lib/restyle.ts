@@ -63,6 +63,9 @@ const lightTheme = createTheme({
     warning: "#FF950D",
     success: "#198754",
     alertBg: palette.black1,
+    skeletonBg: palette.black1,
+    skeleton: palette.black2,
+    transparent: "transparent",
   },
   spacing: {
     auto: "auto",

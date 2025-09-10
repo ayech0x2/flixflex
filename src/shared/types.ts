@@ -22,3 +22,10 @@ export interface AlertPayload {
   message: string;
   type: "SUCCESS" | "DANGER" | "WARNING";
 }
+
+export interface MediaItemProps {
+  title: string;
+  year: string;
+  rating: string;
+  image: string;
+}
