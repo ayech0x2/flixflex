@@ -13,6 +13,6 @@ export const moderateScale = (size: number, factor = 0.5) =>
   size + (scale(size) - size) * factor;
 
 export const normalizeFont = (size: number) => {
-  const newSize = scale(size);
+  const newSize = scale(size) * 0.9;
   return Math.round(PixelRatio.roundToNearestPixel(newSize));
 };

@@ -35,7 +35,9 @@ const palette = {
   black: "#000000",
   white: "#FFFFFF",
   yellow: "#F3BD17",
+  yellow1: "#E0AB08",
   grey: "#BDBDBD",
+  grey1: "#626262",
   black1: "#1D1D1D",
   black2: "#2B2B2B",
 };
@@ -50,6 +52,9 @@ const lightTheme = createTheme({
     accent: palette.yellow,
     inputBg: palette.black1,
     inputBorder: palette.black2,
+    accentBorder: palette.yellow1,
+    languageButton: "rgba(0, 0, 0, 0.5)",
+    disabledButton: palette.grey1,
   },
   spacing: {
     auto: "auto",
@@ -67,6 +72,7 @@ const lightTheme = createTheme({
     inputHeight: moderateScale(50),
     screenHeight: SCREEN_HEIGHT,
     screenWidth: SCREEN_WIDTH,
+    authHeaderHeight: moderateScale(100),
   },
   textVariants: {
     bodySecondary: {
