@@ -4,9 +4,10 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type AuthNavigatorParamList = {
   Auth: undefined;
+  Sync: undefined;
 };
 
-export type AuthScreenProps<ScreenName extends keyof AuthNavigatorParamList> =
+type AuthNavigatorScreenProps<ScreenName extends keyof AuthNavigatorParamList> =
   CompositeScreenProps<
     NativeStackScreenProps<AuthNavigatorParamList, ScreenName>,
     NativeStackScreenProps<RootNavigatorParamList, "AuthNavigator">
@@ -17,4 +18,15 @@ type SigninInput = {
   password: string;
 };
 
-export { AuthNavigatorParamList, SigninInput };
+type SignupInput = {
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
+export {
+  AuthNavigatorParamList,
+  AuthNavigatorScreenProps,
+  SigninInput,
+  SignupInput,
+};
