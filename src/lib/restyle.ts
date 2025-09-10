@@ -75,7 +75,8 @@ const lightTheme = createTheme({
     l: moderateScale(24),
     xl: moderateScale(40),
     xxl: moderateScale(48),
-    screenPadding: moderateScale(30),
+    formPadding: moderateScale(30),
+    screenPadding: moderateScale(20),
     inputPadding: moderateScale(16),
   },
   sizes: {
