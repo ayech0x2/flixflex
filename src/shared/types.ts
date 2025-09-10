@@ -23,9 +23,29 @@ export interface AlertPayload {
   type: "SUCCESS" | "DANGER" | "WARNING";
 }
 
-export interface MediaItemProps {
-  title: string;
-  year: string;
-  rating: string;
-  image: string;
+export interface TmdbBaseItem {
+  id: number;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  overview: string;
+  popularity: number;
+  vote_average: number;
+  vote_count: number;
+  genre_ids: number[];
+  original_language: string;
 }
+
+export interface TmdbMovie extends TmdbBaseItem {
+  title: string;
+  original_title: string;
+  release_date: string;
+}
+
+export interface TmdbSeries extends TmdbBaseItem {
+  name: string;
+  original_name: string;
+  first_air_date: string;
+  origin_country?: string[];
+}
+
+export type TmdbItem = TmdbMovie | TmdbSeries;
