@@ -1,5 +1,7 @@
-import { AnimatedBox, Box } from "@/lib/restyle";
+import { AnimatedBox, Box, Theme } from "@/lib/restyle";
+import { BoxProps } from "@shopify/restyle";
 import * as React from "react";
+import { ViewProps } from "react-native";
 import {
   useAnimatedStyle,
   useSharedValue,
@@ -8,7 +10,13 @@ import {
 } from "react-native-reanimated";
 
 const WIDTH = 30;
-function Skeleton() {
+
+function Skeleton({
+  loading,
+  width,
+  height,
+  ...rest
+}: { loading: boolean } & BoxProps<Theme> & ViewProps) {
   const translateX = useSharedValue(-WIDTH);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -22,8 +30,16 @@ function Skeleton() {
     );
   }, [translateX]);
 
+  if (!loading) return null;
+
   return (
-    <Box height={100} width={400} backgroundColor="skeletonBg">
+    <Box
+      height={height}
+      width={width}
+      backgroundColor="skeletonBg"
+      overflow="hidden"
+      {...rest}
+    >
       <Box height={"100%"} overflow="hidden">
         <AnimatedBox
           opacity={0.75}
