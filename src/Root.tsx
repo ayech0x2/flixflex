@@ -12,24 +12,30 @@ import { themeAtom } from "./shared/atoms";
 import Alert from "./shared/components/Alert";
 
 function Root() {
-  const theme = useAtomValue(themeAtom);
-
-  const client = new QueryClient();
   return (
-    <ThemeProvider theme={theme === "DARK" ? darkTheme : lightTheme}>
-      <StatusBar style={theme === "DARK" ? "light" : "dark"} />
-      <JotaiProvider store={store}>
-        <NavigationContainer>
-          <QueryClientProvider client={client}>
-            <SafeAreaProvider>
-              <Alert />
-              <RootNavigator />
-            </SafeAreaProvider>
-          </QueryClientProvider>
-        </NavigationContainer>
-      </JotaiProvider>
-    </ThemeProvider>
+    <JotaiProvider store={store}>
+      <ThemedApp />
+    </JotaiProvider>
   );
 }
 
 export default Root;
+
+const ThemedApp = () => {
+  const client = new QueryClient();
+
+  const theme = useAtomValue(themeAtom);
+  return (
+    <ThemeProvider theme={theme === "DARK" ? darkTheme : lightTheme}>
+      <StatusBar style={theme === "DARK" ? "light" : "dark"} />
+      <NavigationContainer>
+        <QueryClientProvider client={client}>
+          <SafeAreaProvider>
+            <Alert />
+            <RootNavigator />
+          </SafeAreaProvider>
+        </QueryClientProvider>
+      </NavigationContainer>
+    </ThemeProvider>
+  );
+};

@@ -43,7 +43,7 @@ const palette = {
   red: "#FF0000",
 };
 
-const lightTheme = createTheme({
+const darkTheme = createTheme({
   colors: {
     appBg: palette.black,
     modalBg: "rgba(0, 0, 0, 0.8)",
@@ -127,12 +127,25 @@ const lightTheme = createTheme({
   },
 });
 
-type Theme = typeof lightTheme;
+type Theme = typeof darkTheme;
 
-const darkTheme: Theme = {
-  ...lightTheme,
+const lightTheme: Theme = {
+  ...darkTheme,
   colors: {
-    ...lightTheme.colors,
+    ...darkTheme.colors,
+    appBg: "#FAFAFA",
+    bodyText: "#4B4B4B",
+    secondaryBodyText: "#7F7F7F",
+    inputIcon: palette.grey1,
+    inputBg: palette.white,
+    inputBorder: "#EBEBEB",
+    accent: palette.yellow,
+    accentBorder: palette.yellow1,
+    languageButton: "rgba(255, 255, 255, 0.5)",
+    disabledButton: palette.grey,
+    errorBorder: "rgba(255, 0, 0, 0.4)",
+    errorBg: "rgba(255, 0, 0, 0.1)",
+    errorText: "rgba(255, 0, 0, 0.7)",
   },
 };
 
