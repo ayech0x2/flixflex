@@ -46,6 +46,7 @@ const palette = {
 const darkTheme = createTheme({
   colors: {
     appBg: palette.black,
+    white: palette.white,
     modalBg: "rgba(0, 0, 0, 0.8)",
     bodyText: palette.white,
     buttonText: palette.white,
