@@ -5,7 +5,7 @@ import { HomeNavigatorParamList } from "../types";
 function HomeNavigator() {
   const Stack = createNativeStackNavigator<HomeNavigatorParamList>();
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={HomeScreen} />
     </Stack.Navigator>
   );

@@ -2,14 +2,14 @@ import { RootNavigatorParamList } from "@/navigation/types";
 import { CompositeScreenProps } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-type HomeNavigatorParamList = {
-  Home: undefined;
+type ProfileNavigatorParamList = {
+  Profile: undefined;
 };
 
-type HomeScreenProps<ScreenName extends keyof HomeNavigatorParamList> =
+type ProfileScreenProps<ScreenName extends keyof ProfileNavigatorParamList> =
   CompositeScreenProps<
-    NativeStackScreenProps<HomeNavigatorParamList, ScreenName>,
+    NativeStackScreenProps<ProfileNavigatorParamList, ScreenName>,
     NativeStackScreenProps<RootNavigatorParamList, "BottomTabNavigator">
   >;
 
-export { HomeNavigatorParamList, HomeScreenProps };
+export { ProfileNavigatorParamList, ProfileScreenProps };

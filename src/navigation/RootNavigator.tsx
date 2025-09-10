@@ -1,10 +1,10 @@
 import AuthNavigator from "@/features/auth/navigators/AuthNavigator";
-import HomeNavigator from "@/features/home/navigators/HomeNavigator";
 import { Theme } from "@/lib/restyle";
 import { userAtom } from "@/shared/atoms";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTheme } from "@shopify/restyle";
 import { useAtomValue } from "jotai";
+import BottomTabNavigator from "./BottomTabNavigator";
 import { RootNavigatorParamList } from "./types";
 
 const Stack = createNativeStackNavigator<RootNavigatorParamList>();
@@ -18,7 +18,12 @@ function RootNavigator() {
 
   const renderNavigator = () => {
     if (user) {
-      return <Stack.Screen name="HomeNavigator" component={HomeNavigator} />;
+      return (
+        <Stack.Screen
+          name="BottomTabNavigator"
+          component={BottomTabNavigator}
+        />
+      );
     } else {
       return <Stack.Screen name="AuthNavigator" component={AuthNavigator} />;
     }
