@@ -40,6 +40,7 @@ const palette = {
   grey1: "#626262",
   black1: "#1D1D1D",
   black2: "#2B2B2B",
+  red: "#FF0000",
 };
 
 const lightTheme = createTheme({
@@ -55,6 +56,13 @@ const lightTheme = createTheme({
     accentBorder: palette.yellow1,
     languageButton: "rgba(0, 0, 0, 0.5)",
     disabledButton: palette.grey1,
+    errorBorder: "rgba(255, 0, 0, 0.4)",
+    errorBg: "rgba(255, 0, 0, 0.1)",
+    errorText: "rgba(255, 0, 0, 0.7)",
+    danger: "#FF3C33",
+    warning: "#FF950D",
+    success: "#198754",
+    alertBg: palette.black1,
   },
   spacing: {
     auto: "auto",
@@ -85,6 +93,11 @@ const lightTheme = createTheme({
       fontSize: normalizeFont(18),
       color: "buttonText",
     },
+    alertTitle: {
+      fontWeight: "500",
+      fontSize: normalizeFont(20),
+      color: "bodyText",
+    },
     title: {
       fontWeight: "500",
       fontSize: normalizeFont(24),
@@ -99,6 +112,7 @@ const lightTheme = createTheme({
   borderRadii: {
     button: 8,
     input: 8,
+    alert: 12,
   },
 });
 
