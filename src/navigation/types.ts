@@ -6,10 +6,10 @@ import { SeriesNavigatorParamList } from "@/features/series/types";
 import { NavigatorScreenParams } from "@react-navigation/native";
 
 type BottomTabNavigatorParamList = {
-  Home: NavigatorScreenParams<HomeNavigatorParamList>;
-  Movies: NavigatorScreenParams<MoviesNavigatorParamList>;
-  Series: NavigatorScreenParams<SeriesNavigatorParamList>;
-  Profile: NavigatorScreenParams<ProfileNavigatorParamList>;
+  HomeNavigator: NavigatorScreenParams<HomeNavigatorParamList>;
+  MoviesNavigator: NavigatorScreenParams<MoviesNavigatorParamList>;
+  SeriesNavigator: NavigatorScreenParams<SeriesNavigatorParamList>;
+  ProfileNavigator: NavigatorScreenParams<ProfileNavigatorParamList>;
 };
 
 type RootNavigatorParamList = {

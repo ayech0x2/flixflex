@@ -14,10 +14,10 @@ function BottomTabNavigator() {
       screenOptions={{ headerShown: false }}
       tabBar={(props) => <BottomTab {...props} />}
     >
-      <Tab.Screen name="Home" component={HomeNavigator} />
-      <Tab.Screen name="Movies" component={MoviesNavigator} />
-      <Tab.Screen name="Series" component={SeriesNavigator} />
-      <Tab.Screen name="Profile" component={ProfileNavigator} />
+      <Tab.Screen name="HomeNavigator" component={HomeNavigator} />
+      <Tab.Screen name="MoviesNavigator" component={MoviesNavigator} />
+      <Tab.Screen name="SeriesNavigator" component={SeriesNavigator} />
+      <Tab.Screen name="ProfileNavigator" component={ProfileNavigator} />
     </Tab.Navigator>
   );
 }
