@@ -23,6 +23,7 @@
     "install": "^0.13.0",
     "jotai": "^2.14.0",
     "react": "19.0.0",
+    "react-hook-form": "^7.62.0",
     "react-native": "0.79.5",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
