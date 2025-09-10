@@ -18,9 +18,8 @@ function SearchMoviesScreen({ navigation }: MoviesScreenProps<"SearchMovies">) {
 
   const debouncedTerm = useDebounce(term);
 
-  const { movies, fetchNextPage, hasNextPage, isFetching } = useSearchMovies(
-    debouncedTerm || "",
-  );
+  const { movies, fetchNextPage, hasNextPage, isFetching, refetch } =
+    useSearchMovies(debouncedTerm || "");
 
   useFocusEffect(
     React.useCallback(() => {
@@ -68,6 +67,7 @@ function SearchMoviesScreen({ navigation }: MoviesScreenProps<"SearchMovies">) {
         fetchNextPage={fetchNextPage}
         hasNextPage={hasNextPage}
         isFetching={isFetching}
+        refetch={refetch}
       />
     </SafeAreaView>
   );

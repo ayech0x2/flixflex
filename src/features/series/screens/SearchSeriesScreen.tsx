@@ -18,9 +18,8 @@ function SearchSeriesScreen({ navigation }: SeriesScreenProps<"SearchSeries">) {
 
   const debouncedTerm = useDebounce(term);
 
-  const { series, fetchNextPage, hasNextPage, isFetching } = useSearchSeries(
-    debouncedTerm || "",
-  );
+  const { series, fetchNextPage, hasNextPage, isFetching, refetch } =
+    useSearchSeries(debouncedTerm || "");
 
   useFocusEffect(
     React.useCallback(() => {
@@ -68,6 +67,7 @@ function SearchSeriesScreen({ navigation }: SeriesScreenProps<"SearchSeries">) {
         fetchNextPage={fetchNextPage}
         hasNextPage={hasNextPage}
         isFetching={isFetching}
+        refetch={refetch}
       />
     </SafeAreaView>
   );

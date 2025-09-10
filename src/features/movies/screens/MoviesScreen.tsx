@@ -12,7 +12,7 @@ import { MoviesScreenProps } from "../types";
 function MoviesScreen({ navigation }: MoviesScreenProps<"Movies">) {
   const { data: topRatedMovies } = useTopRatedMovies();
 
-  const { movies, fetchNextPage, hasNextPage, isFetching } =
+  const { movies, fetchNextPage, hasNextPage, isFetching, refetch } =
     useInfiniteMovies();
 
   const { sizes } = useTheme<Theme>();
@@ -59,6 +59,7 @@ function MoviesScreen({ navigation }: MoviesScreenProps<"Movies">) {
         fetchNextPage={fetchNextPage}
         hasNextPage={hasNextPage}
         isFetching={isFetching}
+        refetch={refetch}
       />
     </SafeAreaView>
   );

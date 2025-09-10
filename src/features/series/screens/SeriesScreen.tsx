@@ -11,7 +11,7 @@ import { useTopRatedSeries } from "../services/useTopRatedSeries";
 function MoviesScreen({ navigation }: SeriesScreenProps<"Series">) {
   const { data: topRatedSeries } = useTopRatedSeries();
 
-  const { series, fetchNextPage, hasNextPage, isFetching } =
+  const { series, fetchNextPage, hasNextPage, isFetching, refetch } =
     useInfiniteSeries();
 
   const { sizes } = useTheme<Theme>();
@@ -58,6 +58,7 @@ function MoviesScreen({ navigation }: SeriesScreenProps<"Series">) {
         fetchNextPage={fetchNextPage}
         hasNextPage={hasNextPage}
         isFetching={isFetching}
+        refetch={refetch}
       />
     </SafeAreaView>
   );
