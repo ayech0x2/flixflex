@@ -7,14 +7,7 @@ function EyeSlashIcon(props: IconProps) {
   const { color, strokeWidth, size } = useIcon(props);
 
   return (
-    <Svg
-      width={size}
-      height={18}
-      viewBox="0 0 18 18"
-      fill="none"
-      {...props}
-      {...props}
-    >
+    <Svg width={size} height={18} viewBox="0 0 18 18" fill="none">
       <Path
         d="M10.898 7.102l-3.795 3.795a2.682 2.682 0 113.795-3.795z"
         stroke={color}

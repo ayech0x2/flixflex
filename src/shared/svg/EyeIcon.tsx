@@ -7,7 +7,7 @@ function EyeIcon(props: IconProps) {
   const { color, strokeWidth, size } = useIcon(props);
 
   return (
-    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <Path
         d="M15.58 12c0 1.98-1.6 3.58-3.58 3.58S8.42 13.98 8.42 12s1.6-3.58 3.58-3.58 3.58 1.6 3.58 3.58z"
         stroke={color}
