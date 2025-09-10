@@ -1,7 +1,11 @@
-import { Box } from "@/lib/restyle";
+import { Box, Text } from "@/lib/restyle";
 
 function ProfileScreen() {
-  return <Box />;
+  return (
+    <Box>
+      <Text>Profile</Text>
+    </Box>
+  );
 }
 
 export default ProfileScreen;

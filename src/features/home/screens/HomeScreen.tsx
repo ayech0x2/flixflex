@@ -1,7 +1,11 @@
-import { Box } from "@/lib/restyle";
+import { Box, Text } from "@/lib/restyle";
 
 function HomeScreen() {
-  return <Box />;
+  return (
+    <Box>
+      <Text>Home</Text>
+    </Box>
+  );
 }
 
 export default HomeScreen;

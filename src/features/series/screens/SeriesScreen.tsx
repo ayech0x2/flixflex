@@ -1,7 +1,11 @@
-import { Box } from "@/lib/restyle";
+import { Box, Text } from "@/lib/restyle";
 
 function SeriesScreen() {
-  return <Box />;
+  return (
+    <Box>
+      <Text>Series</Text>
+    </Box>
+  );
 }
 
 export default SeriesScreen;

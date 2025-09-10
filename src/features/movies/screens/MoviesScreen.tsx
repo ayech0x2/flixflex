@@ -1,7 +1,11 @@
-import { Box } from "@/lib/restyle";
+import { Box, Text } from "@/lib/restyle";
 
 function MoviesScreen() {
-  return <Box />;
+  return (
+    <Box>
+      <Text>Movies</Text>
+    </Box>
+  );
 }
 
 export default MoviesScreen;
