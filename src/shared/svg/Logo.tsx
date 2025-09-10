@@ -10,8 +10,8 @@ function Logo() {
   } = useTheme<Theme>();
   return (
     <Svg
-      width={moderateScale(117)}
-      height={moderateScale(28)}
+      width={moderateScale(100)}
+      height={moderateScale(23)}
       viewBox="0 0 117 28"
       fill="none"
     >
