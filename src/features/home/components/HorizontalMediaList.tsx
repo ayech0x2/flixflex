@@ -1,24 +1,24 @@
 import { Box } from "@/lib/restyle";
 import MediaItem from "@/shared/components/MediaItem";
-import { MediaItemProps } from "@/shared/types";
 import { ScrollView } from "react-native";
 import ListHeader from "./ListHeader";
-import Skeleton from "@/shared/components/Skeleton";
+import { TmdbItem } from "@/shared/types";
 
 interface HorizontalMediaListProps {
   title: string;
-  items: Array<MediaItemProps>;
+  items: Array<TmdbItem>;
 }
 
 function HorizontalMediaList({ title, items }: HorizontalMediaListProps) {
-  return <Skeleton />;
   return (
-    <Box>
+    <Box gap="s">
       <ListHeader title={title} />
-      <ScrollView>
-        {items.map((item, k) => (
-          <MediaItem key={k} {...item} />
-        ))}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <Box flexDirection="row" gap="m">
+          {items.map((item, k) => (
+            <MediaItem mode="LANDSCAPE" key={k} {...item} />
+          ))}
+        </Box>
       </ScrollView>
     </Box>
   );
