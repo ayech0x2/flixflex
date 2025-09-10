@@ -1,6 +1,6 @@
 # FlixFlex
 
-A React Native movie and series discovery app built with Expo, TypeScript, and Firebase.
+A React Native movie and series discovery app built with Expo, TypeScript, and Firebase. The project follows Feature-Driven Development (FDD) pattern for better code organization and maintainability.
 
 ## Features
 
@@ -64,6 +64,32 @@ EXPO_PUBLIC_FB_APP_ID=your_firebase_app_id_here
 - React Hook Form for forms
 - React Navigation for navigation
 - Shopify Restyle for styling
+- ESLint for code linting
+- Prettier for code formatting
+- Husky for git hooks
+
+## Navigators Structure
+
+```
+RootNavigator
+├── AuthNavigator (when not authenticated)
+│   └── AuthScreen
+└── BottomTabNavigator (when authenticated)
+    ├── HomeNavigator
+    │   ├── HomeScreen
+    │   ├── MovieScreen (shared)
+    │   └── SerieScreen (shared)
+    ├── MoviesNavigator
+    │   ├── MoviesScreen
+    │   ├── SearchMoviesScreen
+    │   └── MovieScreen (shared)
+    ├── SeriesNavigator
+    │   ├── SeriesScreen
+    │   ├── SearchSeriesScreen
+    │   └── SerieScreen (shared)
+    └── ProfileNavigator
+        └── ProfileScreen
+```
 
 ## Scripts
 
