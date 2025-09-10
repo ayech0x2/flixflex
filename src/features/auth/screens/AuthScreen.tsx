@@ -1,3 +1,4 @@
+import AuthHeader from "@/features/auth/components/AuthHeader";
 import { AnimatedBox, Theme } from "@/lib/restyle";
 import { useTheme } from "@shopify/restyle";
 import * as React from "react";
@@ -11,7 +12,6 @@ import {
   FadeOutRight,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import AuthHeader from "../components/AuthHeader";
 import ImageBackground from "../components/ImageBackground";
 import SigninForm from "../components/SigninForm";
 import SignupForm from "../components/SignupForm";

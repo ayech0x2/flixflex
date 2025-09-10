@@ -46,6 +46,7 @@ const palette = {
 const lightTheme = createTheme({
   colors: {
     appBg: palette.black,
+    modalBg: "rgba(0, 0, 0, 0.8)",
     bodyText: palette.white,
     buttonText: palette.white,
     secondaryBodyText: palette.grey,
@@ -106,6 +107,11 @@ const lightTheme = createTheme({
     title: {
       fontWeight: "500",
       fontSize: normalizeFont(24),
+      color: "bodyText",
+    },
+    sectionTitle: {
+      fontWeight: "500",
+      fontSize: normalizeFont(18),
       color: "bodyText",
     },
     defaults: {
