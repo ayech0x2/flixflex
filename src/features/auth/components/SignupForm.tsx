@@ -70,7 +70,7 @@ function SignupForm({ navigateToSignin }: { navigateToSignin: () => void }) {
   };
 
   return (
-    <Box paddingHorizontal="screenPadding" gap="m">
+    <Box paddingHorizontal="formPadding" gap="m">
       <Text variant="title">Create your {"\n"}Account</Text>
       <Controller
         name="email"

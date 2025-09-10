@@ -65,7 +65,7 @@ function SigninForm({ navigateToSignup }: { navigateToSignup: () => void }) {
   };
 
   return (
-    <Box paddingHorizontal="screenPadding" gap="m">
+    <Box paddingHorizontal="formPadding" gap="m">
       <Text variant="title">Sign-in to your {"\n"}Account</Text>
       <Controller
         name="email"
