@@ -1,5 +1,12 @@
 import { moderateScale } from "@/lib/normalize";
-import { Box, Image, Pressable, Text, Theme } from "@/lib/restyle";
+import {
+  Box,
+  Image,
+  LinearGradient,
+  Pressable,
+  Text,
+  Theme,
+} from "@/lib/restyle";
 import VideoList from "@/shared/components/VideoList";
 import { useSerie } from "@/shared/services/useSerie";
 import { useSerieVideos } from "@/shared/services/useSerieVideos";
@@ -23,14 +30,23 @@ function SerieScreen({ route, navigation }: HomeScreenProps<"Serie">) {
 
   return (
     <Box>
-      <Pressable
+      <LinearGradient
         zIndex={1}
+        position="absolute"
+        width={sizes.screenWidth}
+        height={sizes.screenWidth / 1.77 / 2}
+        top={0}
+        left={0}
+        colors={["rgba(0, 0, 0, 0.5)", "transparent"]}
+      />
+      <Pressable
+        zIndex={2}
         position="absolute"
         top={top}
         left={spacing.screenPadding}
         onPress={navigation.goBack}
       >
-        <CircleLeftIcon size={moderateScale(30)} />
+        <CircleLeftIcon color="white" size={moderateScale(30)} />
       </Pressable>
       <Image
         source={{
