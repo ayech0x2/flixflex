@@ -15,8 +15,9 @@ import AuthHeader from "../components/AuthHeader";
 import ImageBackground from "../components/ImageBackground";
 import SigninForm from "../components/SigninForm";
 import SignupForm from "../components/SignupForm";
+import { AuthNavigatorScreenProps } from "../types";
 
-function AuthScreen() {
+function AuthScreen({}: AuthNavigatorScreenProps<"Auth">) {
   const [screenName, setScreenName] = React.useState("SIGNIN");
 
   const { sizes } = useTheme<Theme>();
