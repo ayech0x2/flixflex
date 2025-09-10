@@ -1,9 +1,14 @@
 import { moderateScale } from "@/lib/normalize";
 import { Box, TouchableOpacity } from "@/lib/restyle";
+import { useAtom } from "jotai";
+import { themeAtom } from "../atoms";
+import CloudIcon from "../svg/CloudIcon";
 import Logo from "../svg/Logo";
 import SunIcon from "../svg/SunIcon";
 
 function Header() {
+  const [theme, setTheme] = useAtom(themeAtom);
+
   return (
     <Box
       flexDirection="row"
@@ -16,8 +21,12 @@ function Header() {
       <Box flex={1}>
         <Logo />
       </Box>
-      <Button>
-        <SunIcon size={"large"} />
+      <Button onPress={() => setTheme(theme === "LIGHT" ? "DARK" : "LIGHT")}>
+        {theme === "LIGHT" ? (
+          <CloudIcon size={"large"} />
+        ) : (
+          <SunIcon size={"large"} />
+        )}
       </Button>
     </Box>
   );
@@ -25,7 +34,13 @@ function Header() {
 
 export default Header;
 
-const Button = ({ children }: { children: React.ReactNode }) => {
+const Button = ({
+  children,
+  onPress,
+}: {
+  children: React.ReactNode;
+  onPress: () => void;
+}) => {
   return (
     <TouchableOpacity
       marginLeft="auto"
@@ -36,6 +51,7 @@ const Button = ({ children }: { children: React.ReactNode }) => {
       justifyContent="center"
       borderRadius="button"
       borderColor="inputBorder"
+      onPress={onPress}
     >
       {children}
     </TouchableOpacity>

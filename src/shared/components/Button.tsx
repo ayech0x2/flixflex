@@ -1,15 +1,15 @@
-import { AnimatedBox, Theme, TouchableOpacity } from "@/lib/restyle";
-import { useTheme } from "@shopify/restyle";
-import RefreshIcon from "../svg/RefreshIcon";
 import { moderateScale } from "@/lib/normalize";
+import { AnimatedBox, Theme, TouchableOpacity } from "@/lib/restyle";
+import { BoxProps, useTheme } from "@shopify/restyle";
+import * as React from "react";
+import { TouchableOpacityProps } from "react-native";
 import {
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
   withTiming,
 } from "react-native-reanimated";
-import * as React from "react";
-import { TouchableOpacityProps } from "react-native";
+import RefreshIcon from "../svg/RefreshIcon";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ function Button({
   loading,
   children,
   ...rest
-}: ButtonProps & TouchableOpacityProps) {
+}: ButtonProps & TouchableOpacityProps & BoxProps<Theme>) {
   const { sizes } = useTheme<Theme>();
 
   const degrees = useSharedValue(0);
