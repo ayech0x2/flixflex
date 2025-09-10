@@ -12,4 +12,9 @@ export type AuthScreenProps<ScreenName extends keyof AuthNavigatorParamList> =
     NativeStackScreenProps<RootNavigatorParamList, "AuthNavigator">
   >;
 
-export { AuthNavigatorParamList };
+type SigninInput = {
+  email: string;
+  password: string;
+};
+
+export { AuthNavigatorParamList, SigninInput };

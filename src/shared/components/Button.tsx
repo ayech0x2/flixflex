@@ -9,13 +9,18 @@ import {
   withTiming,
 } from "react-native-reanimated";
 import * as React from "react";
+import { TouchableOpacityProps } from "react-native";
 
 interface ButtonProps {
   children: React.ReactNode;
   loading?: boolean | undefined;
 }
 
-function Button({ children, loading }: ButtonProps) {
+function Button({
+  loading,
+  children,
+  ...rest
+}: ButtonProps & TouchableOpacityProps) {
   const { sizes } = useTheme<Theme>();
 
   const degrees = useSharedValue(0);
@@ -32,6 +37,7 @@ function Button({ children, loading }: ButtonProps) {
 
   return (
     <TouchableOpacity
+      {...rest}
       height={sizes.buttonHeight}
       backgroundColor={loading ? "disabledButton" : "accent"}
       borderRadius="button"
