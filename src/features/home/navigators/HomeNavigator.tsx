@@ -1,8 +1,9 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "../screens/HomeScreen";
-import { HomeNavigatorParamList } from "../types";
-import { useTheme } from "@shopify/restyle";
 import { Theme } from "@/lib/restyle";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useTheme } from "@shopify/restyle";
+import HomeScreen from "../screens/HomeScreen";
+import MovieScreen from "../screens/MovieScreen";
+import { HomeNavigatorParamList } from "../types";
 
 function HomeNavigator() {
   const Stack = createNativeStackNavigator<HomeNavigatorParamList>();
@@ -19,6 +20,7 @@ function HomeNavigator() {
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Movie" component={MovieScreen} />
     </Stack.Navigator>
   );
 }

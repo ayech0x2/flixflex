@@ -6,6 +6,9 @@ import { useLinkBuilder } from "@react-navigation/native";
 import { useTheme } from "@shopify/restyle";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FlashIcon from "../svg/FlashIcon";
+import MovieIcon from "../svg/MovieIcon";
+import SeriesIcon from "../svg/SeriesIcon";
+import UserIcon from "../svg/UserIcon";
 
 function BottomTab({ state, descriptors, navigation }: BottomTabBarProps) {
   const { buildHref } = useLinkBuilder();
@@ -14,16 +17,19 @@ function BottomTab({ state, descriptors, navigation }: BottomTabBarProps) {
 
   const { sizes } = useTheme<Theme>();
 
-  const renderIcon = (name: keyof BottomTabNavigatorParamList) => {
+  const renderIcon = (
+    name: keyof BottomTabNavigatorParamList,
+    isFocused: boolean,
+  ) => {
     switch (name) {
-      case "Home":
-        return <FlashIcon />;
-      case "Movies":
-        return <FlashIcon />;
-      case "Series":
-        return <FlashIcon />;
+      case "HomeNavigator":
+        return <FlashIcon color={isFocused ? "accent" : "bodyText"} />;
+      case "MoviesNavigator":
+        return <MovieIcon color={isFocused ? "accent" : "bodyText"} />;
+      case "SeriesNavigator":
+        return <SeriesIcon color={isFocused ? "accent" : "bodyText"} />;
       default:
-        return <FlashIcon />;
+        return <UserIcon color={isFocused ? "accent" : "bodyText"} />;
     }
   };
   return (
@@ -32,6 +38,8 @@ function BottomTab({ state, descriptors, navigation }: BottomTabBarProps) {
       height={sizes.bottomTabHeight}
       alignItems="center"
       style={{ paddingBottom: bottom }}
+      borderTopWidth={1}
+      borderTopColor="inputBorder"
     >
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
@@ -70,7 +78,10 @@ function BottomTab({ state, descriptors, navigation }: BottomTabBarProps) {
             style={{ flex: 1 }}
           >
             <Box flex={1} alignItems="center" justifyContent="center">
-              {renderIcon(route.name as keyof BottomTabNavigatorParamList)}
+              {renderIcon(
+                route.name as keyof BottomTabNavigatorParamList,
+                isFocused,
+              )}
             </Box>
           </PlatformPressable>
         );

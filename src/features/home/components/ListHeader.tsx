@@ -8,8 +8,7 @@ function ListHeader({ title }: { title: string }) {
       justifyContent="space-between"
       alignItems="center"
     >
-      <Text variant="title">{title}</Text>
-      <Text>See more</Text>
+      <Text variant="sectionTitle">{title}</Text>
     </Box>
   );
 }

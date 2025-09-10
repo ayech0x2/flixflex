@@ -1,5 +1,5 @@
 import { moderateScale } from "@/lib/normalize";
-import { Box, Image, Text } from "@/lib/restyle";
+import { Box, Image, Text, TouchableOpacity } from "@/lib/restyle";
 import StarIcon from "@/shared/svg/StarIcon";
 import { TmdbItem } from "../types";
 
@@ -9,13 +9,19 @@ const PORTRAIT_HEIGHT = PORTRAIT_WIDTH * 1.5;
 const LANDSCAPE_WIDTH = moderateScale(250);
 const LANDSCAPE_HEIGHT = LANDSCAPE_WIDTH / 1.77;
 
-function MediaItem(props: TmdbItem & { mode: "PORTRAIT" | "LANDSCAPE" }) {
+function MediaItem(
+  props: TmdbItem & {
+    mode: "PORTRAIT" | "LANDSCAPE";
+    // eslint-disable-next-line unused-imports/no-unused-vars
+    navigateToOne?: (id: number) => void | undefined;
+  },
+) {
   const title = "title" in props ? props.title : props.name;
   const date =
     "release_date" in props ? props.release_date : props.first_air_date;
 
   return (
-    <Box gap="xs">
+    <TouchableOpacity gap="xs" onPress={() => props.navigateToOne?.(props.id)}>
       <Image
         width={props.mode === "PORTRAIT" ? PORTRAIT_WIDTH : LANDSCAPE_WIDTH}
         height={props.mode === "PORTRAIT" ? PORTRAIT_HEIGHT : LANDSCAPE_HEIGHT}
@@ -40,7 +46,7 @@ function MediaItem(props: TmdbItem & { mode: "PORTRAIT" | "LANDSCAPE" }) {
           <Text variant="bodySecondary">{props.vote_average.toFixed(1)}</Text>
         </Box>
       </Box>
-    </Box>
+    </TouchableOpacity>
   );
 }
 export default MediaItem;
