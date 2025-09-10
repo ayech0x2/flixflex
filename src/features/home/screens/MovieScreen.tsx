@@ -17,7 +17,7 @@ function MovieScreen({ route, navigation }: HomeScreenProps<"Movie">) {
 
   const { data: videos } = useMovieVideos(id);
 
-  const { sizes } = useTheme<Theme>();
+  const { sizes, spacing } = useTheme<Theme>();
 
   const { top } = useSafeAreaInsets();
 
@@ -27,7 +27,7 @@ function MovieScreen({ route, navigation }: HomeScreenProps<"Movie">) {
         zIndex={1}
         position="absolute"
         top={top}
-        left={moderateScale(10)}
+        left={spacing.screenPadding}
         onPress={navigation.goBack}
       >
         <CircleLeftIcon size={moderateScale(30)} />

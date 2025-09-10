@@ -1,23 +1,23 @@
 import { Box, Theme } from "@/lib/restyle";
 import MediaItem from "@/shared/components/MediaItem";
-import { ScrollView } from "react-native";
-import ListHeader from "./ListHeader";
 import { TmdbItem } from "@/shared/types";
 import { useTheme } from "@shopify/restyle";
+import { ScrollView } from "react-native";
+import ListHeader from "./ListHeader";
 
 interface HorizontalMediaListProps {
   title: string;
   items: Array<TmdbItem>;
   mode?: "LANDSCAPE" | "PORTRAIT" | undefined;
   // eslint-disable-next-line unused-imports/no-unused-vars
-  navigateToMovie?: (id: number) => void | undefined;
+  navigateToOne?: (id: number) => void | undefined;
 }
 
 function HorizontalMediaList({
   title,
   items,
   mode = "PORTRAIT",
-  navigateToMovie,
+  navigateToOne,
 }: HorizontalMediaListProps) {
   const { spacing } = useTheme<Theme>();
 
@@ -37,7 +37,7 @@ function HorizontalMediaList({
               mode={mode}
               key={k}
               {...item}
-              navigateToOne={navigateToMovie}
+              navigateToOne={navigateToOne}
             />
           ))}
         </Box>

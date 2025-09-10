@@ -7,13 +7,25 @@ import { useNowPlayingMovies } from "../services/useNowPlayingMovies";
 import { useTrendingSeries } from "../services/useTrendingSeries";
 import { useUpcomingMovies } from "../services/useUpcomingMovies";
 import { HomeScreenProps } from "../types";
+import HomeScreenSkeleton from "../components/HomeScreenSkeleton";
 
 function HomeScreen({ navigation }: HomeScreenProps<"Home">) {
-  const { data: upcomingMovies } = useUpcomingMovies();
+  const { data: upcomingMovies, isPending: isPendingUpcomingMovies } =
+    useUpcomingMovies();
 
-  const { data: nowPlayingMovies } = useNowPlayingMovies();
+  const { data: nowPlayingMovies, isPending: isPendingNowPlayingMovies } =
+    useNowPlayingMovies();
 
-  const { data: trendingSeries } = useTrendingSeries();
+  const { data: trendingSeries, isPending: isPendingTrendingSeries } =
+    useTrendingSeries();
+
+  if (
+    isPendingUpcomingMovies ||
+    isPendingNowPlayingMovies ||
+    isPendingTrendingSeries
+  ) {
+    return <HomeScreenSkeleton />;
+  }
 
   return (
     <SafeAreaView flex={1}>
@@ -23,11 +35,12 @@ function HomeScreen({ navigation }: HomeScreenProps<"Home">) {
         <HorizontalMediaList
           title="Trending TV shows"
           items={trendingSeries || []}
+          navigateToOne={(id: number) => navigation.navigate("Serie", { id })}
         />
         <HorizontalMediaList
           title="Now playing movies"
           items={nowPlayingMovies || []}
-          navigateToMovie={(id: number) => navigation.navigate("Movie", { id })}
+          navigateToOne={(id: number) => navigation.navigate("Movie", { id })}
         />
       </ScrollView>
     </SafeAreaView>

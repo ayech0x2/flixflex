@@ -5,6 +5,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 type HomeNavigatorParamList = {
   Home: undefined;
   Movie: { id: number };
+  Serie: { id: number };
 };
 
 type HomeScreenProps<ScreenName extends keyof HomeNavigatorParamList> =
