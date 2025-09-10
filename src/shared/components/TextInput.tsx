@@ -1,5 +1,5 @@
 import { AnimatedBox, Box, Pressable, Text, Theme } from "@/lib/restyle";
-import { useTheme } from "@shopify/restyle";
+import { BoxProps, useTheme } from "@shopify/restyle";
 import * as React from "react";
 import {
   TextInput as RNTextInput,
@@ -13,13 +13,23 @@ interface TextInputProps {
   right?: React.ReactNode | undefined;
   nativeProps?: RNTextInputProps | undefined;
   error?: string | undefined;
+  inputRef?: React.RefObject<RNTextInput> | undefined;
+  containerStyle?: BoxProps<Theme> | undefined;
 }
 
-function TextInput({ left, right, label, nativeProps, error }: TextInputProps) {
+function TextInput({
+  left,
+  right,
+  label,
+  nativeProps,
+  error,
+  inputRef,
+  containerStyle,
+}: TextInputProps) {
   const { sizes, textVariants, colors } = useTheme<Theme>();
 
   return (
-    <Box gap="xs">
+    <Box gap="xs" {...containerStyle}>
       {label && (
         <Text color="secondaryBodyText" variant="bodySecondary">
           {label}
@@ -48,6 +58,7 @@ function TextInput({ left, right, label, nativeProps, error }: TextInputProps) {
             color: colors.bodyText,
           }}
           {...nativeProps}
+          ref={inputRef}
         />
         <Box marginLeft="auto" />
         {right && right}

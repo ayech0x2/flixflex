@@ -103,3 +103,10 @@ export interface TmdbVideo {
   official: boolean;
   published_at: string;
 }
+
+export interface TmdbPagination<T> {
+  page: number;
+  results: T[];
+  total_pages: number;
+  total_results: number;
+}
