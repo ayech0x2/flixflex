@@ -81,6 +81,7 @@ const lightTheme = createTheme({
     screenHeight: SCREEN_HEIGHT,
     screenWidth: SCREEN_WIDTH,
     authHeaderHeight: moderateScale(100),
+    bottomTabHeight: moderateScale(80),
   },
   textVariants: {
     bodySecondary: {
