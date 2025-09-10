@@ -33,6 +33,7 @@ function SearchSeriesScreen({ navigation }: SeriesScreenProps<"SearchSeries">) {
   return (
     <SafeAreaView>
       <Box
+        paddingTop="screenPadding"
         paddingHorizontal="screenPadding"
         paddingBottom="s"
         flexDirection="row"

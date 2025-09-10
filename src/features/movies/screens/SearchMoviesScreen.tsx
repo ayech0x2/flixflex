@@ -33,6 +33,7 @@ function SearchMoviesScreen({ navigation }: MoviesScreenProps<"SearchMovies">) {
   return (
     <SafeAreaView>
       <Box
+        paddingTop="screenPadding"
         paddingHorizontal="screenPadding"
         paddingBottom="s"
         flexDirection="row"
