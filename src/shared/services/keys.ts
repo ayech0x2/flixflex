@@ -1,0 +1,3 @@
+const USE_AUTH_QUERY_KEY = "AUTH_QUERY";
+
+export { USE_AUTH_QUERY_KEY };
