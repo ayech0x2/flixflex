@@ -1,7 +1,7 @@
 import { Box, Text, Theme } from "@/lib/restyle";
 import { useTheme } from "@shopify/restyle";
 import * as React from "react";
-import { ActivityIndicator, FlatList } from "react-native";
+import { ActivityIndicator, FlatList, RefreshControl } from "react-native";
 import { TmdbItem } from "../types";
 import InfiniteMediaItem from "./InfiniteMediaItem";
 
@@ -13,6 +13,7 @@ interface InfiniteMediaListProps {
   // eslint-disable-next-line unused-imports/no-unused-vars
   navigateToOne: (id: number) => void;
   ListHeaderComponent?: React.ReactNode | undefined;
+  refetch: () => void;
 }
 
 function InfiniteMediaList({
@@ -22,6 +23,7 @@ function InfiniteMediaList({
   isFetching,
   fetchNextPage,
   navigateToOne,
+  refetch,
 }: InfiniteMediaListProps) {
   const { spacing } = useTheme<Theme>();
 
@@ -56,6 +58,9 @@ function InfiniteMediaList({
       onEndReached={hasNextPage ? fetchNextPage : undefined}
       onEndReachedThreshold={0.5}
       ListFooterComponent={() => (isFetching ? <ActivityIndicator /> : null)}
+      refreshControl={
+        <RefreshControl refreshing={isFetching} onRefresh={refetch} />
+      }
     />
   );
 }

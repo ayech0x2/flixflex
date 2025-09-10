@@ -34,8 +34,8 @@ function VideoList({ videos }: { videos: TmdbVideo[] }) {
                 setVideoId(video.key);
               }}
             >
-              <PlayIcon />
-              <Text>{video.name}</Text>
+              <PlayIcon color="white" />
+              <Text color="white">{video.name}</Text>
             </TouchableOpacity>
           ))}
         </Box>
