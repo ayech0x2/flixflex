@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTheme } from "@shopify/restyle";
 import HomeScreen from "../screens/HomeScreen";
 import { HomeNavigatorParamList } from "../types";
+import { moderateScale } from "@/lib/normalize";
 
 function HomeNavigator() {
   const Stack = createNativeStackNavigator<HomeNavigatorParamList>();
@@ -17,7 +18,7 @@ function HomeNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        contentStyle: { backgroundColor: appBg },
+        contentStyle: { backgroundColor: appBg, paddingTop: moderateScale(10) },
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />

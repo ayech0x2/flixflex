@@ -5,6 +5,7 @@ import { useTheme } from "@shopify/restyle";
 import MoviesScreen from "../screens/MoviesScreen";
 import SearchMoviesScreen from "../screens/SearchMoviesScreen";
 import { MoviesNavigatorParamList } from "../types";
+import { moderateScale } from "@/lib/normalize";
 
 function MoviesNavigator() {
   const Stack = createNativeStackNavigator<MoviesNavigatorParamList>();
@@ -16,7 +17,7 @@ function MoviesNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        contentStyle: { backgroundColor: appBg },
+        contentStyle: { backgroundColor: appBg, paddingTop: moderateScale(10) },
       }}
     >
       <Stack.Screen name="Movies" component={MoviesScreen} />

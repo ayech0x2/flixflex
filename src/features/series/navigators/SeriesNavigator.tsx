@@ -5,6 +5,7 @@ import SeriesScreen from "../screens/SeriesScreen";
 import { SeriesNavigatorParamList } from "../types";
 import { Theme } from "@/lib/restyle";
 import { useTheme } from "@shopify/restyle";
+import { moderateScale } from "@/lib/normalize";
 
 function SeriesNavigator() {
   const Stack = createNativeStackNavigator<SeriesNavigatorParamList>();
@@ -16,7 +17,7 @@ function SeriesNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        contentStyle: { backgroundColor: appBg },
+        contentStyle: { backgroundColor: appBg, paddingTop: moderateScale(10) },
       }}
     >
       <Stack.Screen name="Series" component={SeriesScreen} />
