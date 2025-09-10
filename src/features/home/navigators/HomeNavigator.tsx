@@ -1,9 +1,9 @@
 import { Theme } from "@/lib/restyle";
+import MovieScreen from "@/shared/screens/MovieScreen";
+import SerieScreen from "@/shared/screens/SerieScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTheme } from "@shopify/restyle";
 import HomeScreen from "../screens/HomeScreen";
-import MovieScreen from "../screens/MovieScreen";
-import SerieScreen from "../screens/SerieScreen";
 import { HomeNavigatorParamList } from "../types";
 
 function HomeNavigator() {

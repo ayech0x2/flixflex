@@ -4,6 +4,8 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type SeriesNavigatorParamList = {
   Series: undefined;
+  Serie: { id: number };
+  SearchSeries: undefined;
 };
 
 type SeriesScreenProps<ScreenName extends keyof SeriesNavigatorParamList> =

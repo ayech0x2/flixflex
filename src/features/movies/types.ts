@@ -4,6 +4,8 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type MoviesNavigatorParamList = {
   Movies: undefined;
+  Movie: { id: number };
+  SearchMovies: undefined;
 };
 
 type MoviesScreenProps<ScreenName extends keyof MoviesNavigatorParamList> =
