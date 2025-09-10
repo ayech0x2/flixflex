@@ -17,7 +17,7 @@ const useSearchSeries = (term: string) => {
       queryFn: ({ pageParam }) => queryFn(pageParam as number, term),
       queryKey: [USE_SEARCH_SERIES_QUERY_KEY, term],
       getNextPageParam: (lastPage) => {
-        if (!lastPage.total_pages) {
+        if (!lastPage.total_pages || lastPage.page >= lastPage.total_pages) {
           return undefined;
         }
         return lastPage.page + 1;

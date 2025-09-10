@@ -16,7 +16,7 @@ const useInfiniteMovies = () => {
       queryFn: ({ pageParam }) => queryFn(pageParam as number),
       queryKey: [USE_INFINITE_MOVIES_QUERY_KEY],
       getNextPageParam: (lastPage) => {
-        if (!lastPage.total_pages) {
+        if (!lastPage.total_pages || lastPage.page >= lastPage.total_pages) {
           return undefined;
         }
         return lastPage.page + 1;
